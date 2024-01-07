@@ -22,7 +22,7 @@ extension ViewController {
         button.setImage(UIImage(systemName: imageName), for: .normal)
         button.tintColor = .black
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = button.bounds.height / 2
         switch button {
         case plusButtonOutlet:
@@ -39,6 +39,9 @@ extension ViewController {
         historyTV.isEditable = false
         historyTV.textAlignment = .center
         historyTV.font = UIFont.systemFont(ofSize: 18)
+        historyTV.layer.borderWidth = 1.0;
+        historyTV.layer.cornerRadius = 10
+        historyTV.layer.borderColor = UIColor.black.cgColor
     }
     
     private func setUpCountLabel() {
