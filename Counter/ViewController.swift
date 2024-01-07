@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
     
     // MARK: - Private Properties
     private var count: Int = 0
-    let stringIndex = StringsConstants.startHistoryLabel.rawValue.endIndex
+    private let stringIndex = StringsConstants.startHistoryLabel.rawValue.endIndex
     
     // MARK: - View Life Cycles
     override func viewDidLoad() {
@@ -74,6 +74,7 @@ final class ViewController: UIViewController {
     private func timeToStringConverter() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
         dateFormatter.dateFormat = Format.fullDate.rawValue
         return dateFormatter.string(from: date)
     }
