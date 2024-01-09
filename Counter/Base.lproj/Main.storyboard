@@ -47,7 +47,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="trachButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bev-Af-Ys0"/>
+                                    <action selector="trashButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bev-Af-Ys0"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B5e-7x-TPg">

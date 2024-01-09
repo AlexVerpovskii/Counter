@@ -8,25 +8,18 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    /*
-     Оформление и структурирование классов в Swift
-     Нашел статью на хабре (https://habr.com/ru/articles/744470/)
-     Но там ничего не написано по поводу статичных свойств
-     Вопрос: а по правилу хорошего тона, где обычно создаются (место в коде)?
-     или так вообще не принято?
-     */
-//    private static var TIME_FORMAT: String = "YY, MMM d, HH:mm:ss"
     
-    typealias Action = Constants.Action
-    typealias Format = Constants.TimeFormat
-    typealias StringsConstants = Constants.StringsConstants
-
+    // MARK: - Type alias
+    private typealias Action = Constants.Action
+    private typealias Format = Constants.TimeFormat
+    private typealias StringsConstants = Constants.StringsConstants
+    
     // MARK: - IB Outlets
-    @IBOutlet weak var trashButtonOutlet: UIButton!
-    @IBOutlet weak var historyTV: UITextView!
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var plusButtonOutlet: UIButton!
-    @IBOutlet weak var minusButtonOutlet: UIButton!
+    @IBOutlet private weak var trashButtonOutlet: UIButton!
+    @IBOutlet private weak var historyTV: UITextView!
+    @IBOutlet private weak var countLabel: UILabel!
+    @IBOutlet private weak var plusButtonOutlet: UIButton!
+    @IBOutlet private weak var minusButtonOutlet: UIButton!
     
     // MARK: - Private Properties
     private var count: Int = 0
@@ -38,12 +31,12 @@ final class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         setupUI()
     }
-
+    
     // MARK: - IB Actions
-    @IBAction private func trachButtonAction(_ sender: UIButton) {
+    @IBAction private func trashButtonAction(_ sender: UIButton) {
         clearHistory()
     }
     @IBAction private func plusButtonAction(_ sender: UIButton) {
@@ -86,3 +79,46 @@ final class ViewController: UIViewController {
     }
 }
 
+extension ViewController {
+    
+    private func setupUI() {
+        setUpHistoryTV()
+        setUpCountLabel()
+        setupButtonOutlet(button: trashButtonOutlet, imageName: "trash")
+        setupButtonOutlet(button: plusButtonOutlet, imageName: "plus")
+        setupButtonOutlet(button: minusButtonOutlet, imageName: "minus")
+    }
+    
+    private func setupButtonOutlet(button: UIButton, imageName: String) {
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(systemName: imageName), for: .normal)
+        button.tintColor = .black
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.cornerRadius = button.bounds.height / 2
+        switch button {
+        case plusButtonOutlet:
+            button.backgroundColor = .systemRed
+        case minusButtonOutlet:
+            button.backgroundColor = .systemBlue
+        default:
+            break
+        }
+    }
+    
+    private func setUpHistoryTV() {
+        historyTV.text = StringsConstants.startHistoryLabel.rawValue
+        historyTV.isEditable = false
+        historyTV.textAlignment = .center
+        historyTV.font = UIFont.systemFont(ofSize: 18)
+        historyTV.layer.borderWidth = 1.0;
+        historyTV.layer.cornerRadius = 10
+        historyTV.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    private func setUpCountLabel() {
+        countLabel.font = UIFont.systemFont(ofSize: 20)
+        countLabel.text = "0"
+        countLabel.textAlignment = .center
+    }
+}

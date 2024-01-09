@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3304783F2B4AF47D0037FEB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3304783E2B4AF47D0037FEB5 /* Constants.swift */; };
-		330478412B4AFDF70037FEB5 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330478402B4AFDF70037FEB5 /* ViewController+Extensions.swift */; };
 		330C39A42B49FD9D0095A8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C39A32B49FD9D0095A8CA /* AppDelegate.swift */; };
 		330C39A62B49FD9D0095A8CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C39A52B49FD9D0095A8CA /* SceneDelegate.swift */; };
 		330C39A82B49FD9D0095A8CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C39A72B49FD9D0095A8CA /* ViewController.swift */; };
@@ -19,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		3304783E2B4AF47D0037FEB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		330478402B4AFDF70037FEB5 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		330C39A02B49FD9D0095A8CA /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330C39A32B49FD9D0095A8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		330C39A52B49FD9D0095A8CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				330C39AE2B49FD9F0095A8CA /* LaunchScreen.storyboard */,
 				330C39B12B49FD9F0095A8CA /* Info.plist */,
 				3304783E2B4AF47D0037FEB5 /* Constants.swift */,
-				330478402B4AFDF70037FEB5 /* ViewController+Extensions.swift */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -145,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				330C39A82B49FD9D0095A8CA /* ViewController.swift in Sources */,
-				330478412B4AFDF70037FEB5 /* ViewController+Extensions.swift in Sources */,
 				330C39A42B49FD9D0095A8CA /* AppDelegate.swift in Sources */,
 				330C39A62B49FD9D0095A8CA /* SceneDelegate.swift in Sources */,
 				3304783F2B4AF47D0037FEB5 /* Constants.swift in Sources */,
