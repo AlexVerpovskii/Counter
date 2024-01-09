@@ -58,7 +58,7 @@ final class ViewController: UIViewController {
                 historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(Action.minus.rawValue)\n", at: stringIndex)
                 count -= 1
             } else {
-                historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: попытка уменьшить значение счётчика ниже 0\n", at: stringIndex)
+                historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(StringsConstants.errorLessThanZero.rawValue)", at: stringIndex)
             }
         }
         countLabel.text = String(count)
@@ -67,13 +67,13 @@ final class ViewController: UIViewController {
     private func timeToStringConverter() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.locale = Locale(identifier: Constants.LocalDateFormat.ru.rawValue)
         dateFormatter.dateFormat = Format.fullDate.rawValue
         return dateFormatter.string(from: date)
     }
     
     private func clearHistory() {
-        historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: значение сброшено\n", at: stringIndex)
+        historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(StringsConstants.resetValue.rawValue)", at: stringIndex)
         count = 0
         countLabel.text = String(count)
     }
@@ -84,13 +84,13 @@ extension ViewController {
     private func setupUI() {
         setUpHistoryTV()
         setUpCountLabel()
-        setupButtonOutlet(button: trashButtonOutlet, imageName: "trash")
-        setupButtonOutlet(button: plusButtonOutlet, imageName: "plus")
-        setupButtonOutlet(button: minusButtonOutlet, imageName: "minus")
+        setupButtonOutlet(button: trashButtonOutlet, imageName: Constants.ImageName.trash.rawValue)
+        setupButtonOutlet(button: plusButtonOutlet, imageName: Constants.ImageName.plus.rawValue)
+        setupButtonOutlet(button: minusButtonOutlet, imageName: Constants.ImageName.minus.rawValue)
     }
     
     private func setupButtonOutlet(button: UIButton, imageName: String) {
-        button.setTitle("", for: .normal)
+        button.setTitle(Constants.OtherString.empty.rawValue, for: .normal)
         button.setImage(UIImage(systemName: imageName), for: .normal)
         button.tintColor = .black
         button.layer.borderWidth = 1
@@ -118,7 +118,7 @@ extension ViewController {
     
     private func setUpCountLabel() {
         countLabel.font = UIFont.systemFont(ofSize: 20)
-        countLabel.text = "0"
+        countLabel.text = Constants.Number.zero.rawValue
         countLabel.textAlignment = .center
     }
 }

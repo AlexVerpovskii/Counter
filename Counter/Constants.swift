@@ -17,5 +17,21 @@ enum Constants {
     }
     enum StringsConstants: String {
         case startHistoryLabel = "История изменений:\n"
+        case errorLessThanZero = "попытка уменьшить значение счётчика ниже 0\n"
+        case resetValue = "значение сброшено\n"
+    }
+    enum LocalDateFormat: String {
+        case ru = "ru_RU"
+    }
+    enum ImageName: String {
+        case trash = "trash"
+        case plus = "plus"
+        case minus = "minus"
+    }
+    enum Number: String {
+        case zero = "0"
+    }
+    enum OtherString: String {
+        case empty = ""
     }
 }
