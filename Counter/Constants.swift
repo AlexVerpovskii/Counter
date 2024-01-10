@@ -9,8 +9,8 @@ import Foundation
 
 enum Constants {
     enum Action: String {
-        case plus = "+1"
-        case minus = "-1"
+        case plusOne = "+1"
+        case minusOne = "-1"
     }
     enum TimeFormat: String {
         case fullDate = "YY, MMM d, HH:mm:ss"
@@ -21,12 +21,12 @@ enum Constants {
         case resetValue = "значение сброшено\n"
     }
     enum LocalDateFormat: String {
-        case ru = "ru_RU"
+        case russian = "ru_RU"
     }
     enum ImageName: String {
-        case trash = "trash"
-        case plus = "plus"
-        case minus = "minus"
+        case trash
+        case plus
+        case minus
     }
     enum Number: String {
         case zero = "0"

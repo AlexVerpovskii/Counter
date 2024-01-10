@@ -26,10 +26,6 @@ final class ViewController: UIViewController {
     private let stringIndex = StringsConstants.startHistoryLabel.rawValue.endIndex
     
     // MARK: - View Life Cycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
@@ -39,23 +35,25 @@ final class ViewController: UIViewController {
     @IBAction private func trashButtonAction(_ sender: UIButton) {
         clearHistory()
     }
+    
     @IBAction private func plusButtonAction(_ sender: UIButton) {
-        addHistoryEntity(action: .plus)
+        addHistoryEntity(action: .plusOne)
     }
+    
     @IBAction private func minusButtonAction(_ sender: UIButton) {
-        addHistoryEntity(action: .minus)
+        addHistoryEntity(action: .minusOne)
     }
     
     // MARK: - Private Methods
     private func addHistoryEntity(action: Action) {
         switch action {
-        case .plus:
-            //Есть решение получше с добавлением в начало строки?
-            historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(Action.plus.rawValue)\n", at: stringIndex)
+        case .plusOne:
+            // Есть решение получше с добавлением в начало строки?
+            historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(Action.plusOne.rawValue)\n", at: stringIndex)
             count += 1
-        case .minus:
+        case .minusOne:
             if count > 0 {
-                historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(Action.minus.rawValue)\n", at: stringIndex)
+                historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(Action.minusOne.rawValue)\n", at: stringIndex)
                 count -= 1
             } else {
                 historyTV.text.insert(contentsOf: "[\(timeToStringConverter())]: \(StringsConstants.errorLessThanZero.rawValue)", at: stringIndex)
@@ -67,7 +65,7 @@ final class ViewController: UIViewController {
     private func timeToStringConverter() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Constants.LocalDateFormat.ru.rawValue)
+        dateFormatter.locale = Locale(identifier: Constants.LocalDateFormat.russian.rawValue)
         dateFormatter.dateFormat = Format.fullDate.rawValue
         return dateFormatter.string(from: date)
     }
@@ -111,7 +109,7 @@ extension ViewController {
         historyTV.isEditable = false
         historyTV.textAlignment = .center
         historyTV.font = UIFont.systemFont(ofSize: 18)
-        historyTV.layer.borderWidth = 1.0;
+        historyTV.layer.borderWidth = 1.0
         historyTV.layer.cornerRadius = 10
         historyTV.layer.borderColor = UIColor.black.cgColor
     }
