@@ -26,8 +26,8 @@ final class ViewController: UIViewController {
     private let stringIndex = StringsConstants.startHistoryLabel.rawValue.endIndex
     
     // MARK: - View Life Cycles
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setupUI()
     }
     
